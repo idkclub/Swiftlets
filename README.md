@@ -1,26 +1,6 @@
 # Swiftlets
 
-A collection of extracted components.
-
-## GRDBPlus
-
-GRDB helper extensions.
-
-## MarkCell
-
-UITableCells containing MarkView for display, editing.
-
-## MarkView
-
-UITextView for displaying Markdown.
-
-## Notes
-
-GRDB structs for storing linked notes.
-
-## NotesUI
-
-Helper views for working with `Notes`.
+A collection of extracted Swift components without (additional) dependencies.
 
 ## Paths
 
