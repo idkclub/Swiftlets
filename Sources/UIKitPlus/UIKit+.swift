@@ -26,7 +26,7 @@ public extension UIView {
     }
 
     @discardableResult
-    func pinned(to view: UIView, anchor: Anchor = .layout, bottom: Anchor = .inherit, top: Anchor = .inherit, leading: Anchor = .inherit, trailing: Anchor = .inherit, layout: Anchor = .inherit) -> Self {
+    func pinned(to view: UIView, anchor: Anchor = .layout, bottom: Anchor = .inherit, top: Anchor = .inherit, leading: Anchor = .inherit, trailing: Anchor = .inherit, priority: UILayoutPriority? = nil) -> Self {
         view.addSubview(self)
         translatesAutoresizingMaskIntoConstraints = false
         var constraints: [NSLayoutConstraint] = []
@@ -41,6 +41,9 @@ public extension UIView {
         }
         if let guide = trailing.resolve(from: anchor, with: view) {
             constraints.append(trailingAnchor.constraint(equalTo: guide.trailingAnchor))
+        }
+        if let priority = priority {
+            constraints.forEach { $0.priority = priority }
         }
         NSLayoutConstraint.activate(constraints)
         return self
